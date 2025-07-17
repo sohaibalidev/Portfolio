@@ -60,6 +60,14 @@ const projects = [
         githubLink: 'https://github.com/sohaibalidev/Shortify',
         demoLink: 'https://url-shortener-shortify.onrender.com/',
         image: '/assets/projects/shortify-preview.png'
+    },
+    {
+        title: 'Wrikos',
+        description: 'A responsive and secure task manager app with user authentication, light/dark theme, and persistent task storage.',
+        technologies: ['Express', 'MongoDB', 'JWT', 'Bcrypt', 'Reactjs'],
+        githubLink: 'https://github.com/sohaibalidev/Wrikos-client',
+        demoLink: 'https://wrikos.netlify.app/',
+        image: '/assets/projects/wrikos-preview.png'
     }
 ];
 
