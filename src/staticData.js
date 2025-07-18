@@ -54,12 +54,12 @@ const projects = [
         image: '/assets/projects/loopin-review.png'
     },
     {
-        title: 'Shortify',
+        title: 'NanoCut',
         description: 'A lightweight URL shortener with JWT email verification, auth system, and a dark/light themed dashboard.',
         technologies: ['Express', 'MongoDB', 'NodeMailer', 'JWT', 'Bcrypt'],
-        githubLink: 'https://github.com/sohaibalidev/Shortify',
-        demoLink: 'https://url-shortener-shortify.onrender.com/',
-        image: '/assets/projects/shortify-preview.png'
+        githubLink: 'https://github.com/sohaibalidev/NanoCut',
+        demoLink: 'https://nanocut.onrender.com/',
+        image: '/assets/projects/nanocut-preview.png'
     },
     {
         title: 'Wrikos',
