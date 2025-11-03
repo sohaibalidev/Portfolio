@@ -125,7 +125,6 @@
   font-size: 0.9rem;
 }
 
-/* Portrait Styles */
 .portraitSection {
   display: flex;
   justify-content: center;
@@ -181,7 +180,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .heroContent {
     grid-template-columns: 1fr;

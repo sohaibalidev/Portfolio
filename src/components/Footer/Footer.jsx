@@ -1,4 +1,4 @@
-import { contact } from "../../data/siteData"; // Changed from ContactObj to contact
+import { contact } from "../../data/SiteData"; 
 import { Heart, Coffee } from "lucide-react";
 import styles from "./Footer.module.css";
 

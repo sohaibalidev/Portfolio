@@ -1,24 +1,19 @@
 export const skills = [
-  // Frontend
   { name: "React.js", category: "Frontend" },
   { name: "JavaScript (ES6+)", category: "Frontend" },
   { name: "HTML5 & CSS3", category: "Frontend" },
 
-  // Backend
   { name: "Node.js", category: "Backend" },
   { name: "Express.js", category: "Backend" },
   { name: "JWT & Sessions", category: "Backend" },
   { name: "Socket.IO", category: "Backend" },
 
-  // Database
   { name: "MongoDB", category: "Database" },
   { name: "Redis", category: "Database" },
 
-  // Security
   { name: "CORS & Helmet", category: "Tools" },
   { name: "Rate Limiting", category: "Tools" },
 
-  // Tools
   { name: "Git & GitHub", category: "Tools" },
   { name: "Vercel", category: "Tools" },
   { name: "Render", category: "Tools" },
