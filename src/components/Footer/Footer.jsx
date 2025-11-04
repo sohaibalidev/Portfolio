@@ -1,6 +1,7 @@
-import { contact } from "@/data/SiteData"; 
+import { contact } from "@/data/SiteData";
 import { Heart, Coffee } from "lucide-react";
 import styles from "./Footer.module.css";
+import { handleNavClick } from "../Navigation/Navigation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,10 +16,18 @@ const Footer = () => {
           </div>
 
           <div className={styles.links}>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(`#${item.toLowerCase()}`);
+                }}
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
           <div className={styles.social}>
