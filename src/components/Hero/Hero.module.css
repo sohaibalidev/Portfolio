@@ -92,20 +92,25 @@
   margin-bottom: 4rem;
   flex-wrap: wrap;
 }
-
 .stats {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
 }
 
 .stat {
   text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.stat:hover {
+  transform: translateY(-2px);
 }
 
 .stat svg {
   color: var(--accent-color);
-  margin-bottom: 0.5rem;
 }
 
 .statNumber {
@@ -114,12 +119,36 @@
   background: var(--primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.25rem;
 }
 
 .statLabel {
   color: var(--text-secondary);
   font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .stats {
+    gap: 1.5rem;
+  }
+
+  .stat {
+    padding: 0.875rem;
+  }
+
+  .statNumber {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    gap: 1rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+  }
 }
 
 .portraitSection {

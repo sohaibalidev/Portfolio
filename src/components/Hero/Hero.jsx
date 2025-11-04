@@ -94,7 +94,7 @@ const Hero = () => {
             <div className={styles.stats}>
               <div className={styles.stat}>
                 <Folder size={24} />
-                <div className={styles.statNumber}>15+</div>
+                <div className={styles.statNumber}>8+</div>
                 <div className={styles.statLabel}>Projects</div>
               </div>
               <div className={styles.stat}>
@@ -104,7 +104,7 @@ const Hero = () => {
               </div>
               <div className={styles.stat}>
                 <Cpu size={24} />
-                <div className={styles.statNumber}>10+</div>
+                <div className={styles.statNumber}>14+</div>
                 <div className={styles.statLabel}>Technologies</div>
               </div>
             </div>
