@@ -1,4 +1,4 @@
-import { contact } from "../../data/SiteData"; 
+import { contact } from "@/data/SiteData"; 
 import { Heart, Coffee } from "lucide-react";
 import styles from "./Footer.module.css";
 
@@ -25,7 +25,6 @@ const Footer = () => {
             <a href={contact.github} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            <a href={`mailto:${contact.email}`}>Email</a>
           </div>
         </div>
 

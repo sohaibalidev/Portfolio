@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import { Rocket, ArrowRight, Folder, Calendar, Cpu } from "lucide-react";
-import styles from "./Hero.module.css";
+import { useState, useEffect, useRef } from 'react';
+import { Rocket, ArrowRight, Folder, Calendar, Cpu } from 'lucide-react';
+import { handleNavClick } from '../Navigation/Navigation';
+import styles from './Hero.module.css';
 
 const Hero = () => {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState('');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
-  const words = ["Fullstack Developer", "Problem Solver", "Tech Enthusiast"];
+  const words = ['Fullstack Developer', 'Problem Solver', 'Tech Enthusiast'];
 
   useEffect(() => {
     const currentWord = words[currentWordIndex];
@@ -18,7 +19,7 @@ const Hero = () => {
       }, 100);
     } else {
       timeout = setTimeout(() => {
-        setDisplayedText("");
+        setDisplayedText('');
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
       }, 2000);
     }
@@ -26,15 +27,45 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [displayedText, currentWordIndex]);
 
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const portraitRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!portraitRef.current) return;
+
+    const rect = portraitRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+
+    const moveX = (x - 0.5) * 8;
+    const moveY = (y - 0.5) * 8;
+
+    setPosition({ x: moveX, y: moveY });
+  };
+
+  const handleMouseLeave = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
   return (
     <section id="home" className={styles.hero}>
       <div className="container">
         <div className={styles.heroContent}>
           <div className={styles.textContent}>
-            <div className={styles.badge}>
-              <Rocket size={16} />
-              Available for new projects
-            </div>
+            <a
+              key={'Contact'}
+              href={'#contact'}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#contact');
+              }}
+              className={styles.badgeLink}
+            >
+              <div className={styles.badge}>
+                <Rocket size={16} />
+                Available for new projects
+              </div>
+            </a>
 
             <h1 className={styles.title}>
               Hi, I'm <span className="gradient-text">Sohaib</span>
@@ -46,9 +77,8 @@ const Hero = () => {
             </h2>
 
             <p className={styles.description}>
-              I build performant, scalable web applications with modern
-              technologies. Passionate about creating solutions that make a
-              difference.
+              I build performant, scalable web applications with modern technologies. Passionate
+              about creating solutions that make a difference.
             </p>
 
             <div className={styles.buttons}>
@@ -86,6 +116,12 @@ const Hero = () => {
                 src="/assets/portrait.png"
                 alt="Muhammad Sohaib Ali"
                 className={styles.portrait}
+                style={{
+                  transform: `translate(${position.x}px, ${position.y}px)`,
+                }}
+                ref={portraitRef}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
               />
               <div className={styles.portraitGlow}></div>
             </div>

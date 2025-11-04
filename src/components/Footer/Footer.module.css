@@ -55,7 +55,7 @@
 }
 
 .social a:hover {
-  background: var(--primary-gradient);
+  background: #008cff;
   color: white;
 }
 

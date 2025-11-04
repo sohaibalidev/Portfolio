@@ -1,25 +1,60 @@
-import { useState } from "react";
-import { contact } from "../../data/SiteData.js";
-import { Mail, Phone, Github, Send, Loader2 } from "lucide-react";
-import styles from "./Contact.module.css";
+import { useState } from 'react';
+import { Mail, Phone, Github, Send, Loader2 } from 'lucide-react';
+import { contact } from '@/data/SiteData.js';
+import styles from './Contact.module.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
+  const showMessage = (message) => {
+    setAlertMessage(message);
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 4000);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    const accessKey = import.meta.env.VITE_FORM_API_KEY;
+
+    const formPayload = {
+      access_key: accessKey,
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formPayload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        showMessage('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        showMessage('Something went wrong. Please try again later.');
+      }
+    } catch (error) {
+      showMessage('Error sending message!');
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
-      alert("Message sent! I'll get back to you soon.");
-    }, 2000);
+    }
   };
 
   const handleChange = (e) => {
@@ -31,6 +66,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className={styles.contact}>
+      {showAlert && <div className={styles.alertBox}>{alertMessage}</div>}
       <div className="container">
         <div className={styles.contactContent}>
           <div className={styles.contactInfo}>
@@ -39,15 +75,12 @@ const Contact = () => {
             </h2>
 
             <p className={styles.description}>
-              Have a project in mind? Let's discuss how we can work together to
-              bring your ideas to life.
+              Have a project in mind? Let's discuss how we can work together to bring your ideas to
+              life.
             </p>
 
             <div className={styles.contactMethods}>
-              <a
-                href={`mailto:${contact.email}`}
-                className={styles.contactMethod}
-              >
+              <a href={`mailto:${contact.email}`} className={styles.contactMethod}>
                 <Mail size={24} />
                 <span>{contact.email}</span>
               </a>
@@ -96,18 +129,13 @@ const Contact = () => {
               <textarea
                 name="message"
                 placeholder="Your Message"
-                rows="5"
                 value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={styles.submitBtn}
-            >
+            <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
               {isSubmitting ? (
                 <>
                   <Loader2 size={20} className={styles.spinner} />

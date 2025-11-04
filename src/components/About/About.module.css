@@ -104,6 +104,7 @@
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
+  cursor: pointer;
   overflow: hidden;
 }
 
@@ -164,7 +165,7 @@
   flex-direction: column;
   gap: 1.5rem;
   position: sticky;
-  top: 2rem;
+  top: 6rem;
 }
 
 .focusCard {
@@ -174,6 +175,7 @@
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   position: relative;
+  cursor: pointer;
   overflow: hidden;
 }
 

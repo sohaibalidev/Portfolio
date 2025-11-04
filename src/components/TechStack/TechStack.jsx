@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { skills } from "../../data/SiteData";
+import { skills } from "@/data/SiteData";
 import { Code2, Database, Server, GitBranch } from "lucide-react";
 import styles from "./TechStack.module.css";
 

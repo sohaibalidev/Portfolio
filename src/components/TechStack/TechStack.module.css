@@ -50,6 +50,7 @@
 .skillCard {
   background: var(--card-bg);
   padding: 2rem;
+  cursor: pointer;
   border-radius: 15px;
   border: 1px solid var(--border-color);
   text-align: center;

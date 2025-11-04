@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { projects, projectCategories } from "../../data/SiteData";
+import { useState, useEffect } from 'react';
+import { projects, projectCategories } from '@/data/SiteData';
 import {
   ExternalLink,
   Github,
@@ -13,17 +13,17 @@ import {
   Play,
   Pause,
   Zap,
-} from "lucide-react";
-import styles from "./Projects.module.css";
+} from 'lucide-react';
+import styles from './Projects.module.css';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState('All');
   const [autoPlay, setAutoPlay] = useState(true);
 
   const filteredProjects =
-    activeFilter === "All"
+    activeFilter === 'All'
       ? projects
-      : activeFilter === "Featured"
+      : activeFilter === 'Featured'
       ? projects.filter((project) => project.featured)
       : projects.filter((project) => project.category === activeFilter);
 
@@ -46,8 +46,8 @@ const Projects = () => {
           </h2>
 
           <p className={styles.sectionSubtitle}>
-            A collection of my work showcasing fullstack applications, frontend
-            interfaces, and backend systems built with modern technologies.
+            A collection of my work showcasing fullstack applications, frontend interfaces, and
+            backend systems built with modern technologies.
           </p>
 
           <div className={styles.controls}>
@@ -57,7 +57,7 @@ const Projects = () => {
                 <button
                   key={category}
                   className={`${styles.filterBtn} ${
-                    activeFilter === category ? styles.active : ""
+                    activeFilter === category ? styles.active : ''
                   }`}
                   onClick={() => setActiveFilter(category)}
                 >
@@ -68,11 +68,9 @@ const Projects = () => {
             </div>
 
             <button
-              className={`${styles.autoPlayBtn} ${
-                autoPlay ? styles.active : ""
-              }`}
+              className={`${styles.autoPlayBtn} ${autoPlay ? styles.active : ''}`}
               onClick={() => setAutoPlay(!autoPlay)}
-              title={autoPlay ? "Pause auto-play" : "Start auto-play"}
+              title={autoPlay ? 'Pause auto-play' : 'Start auto-play'}
             >
               {autoPlay ? <Pause size={16} /> : <Play size={16} />}
               Auto-play
@@ -82,12 +80,7 @@ const Projects = () => {
 
         <div className={styles.projectsGrid}>
           {filteredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              index={index}
-              autoPlay={autoPlay}
-            />
+            <ProjectCard key={project.title} project={project} index={index} autoPlay={autoPlay} />
           ))}
         </div>
 
@@ -108,6 +101,7 @@ const ProjectCard = ({ project, index, autoPlay }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [isNavHovered, setIsNavHovered] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     setIsPlaying(autoPlay);
@@ -117,24 +111,18 @@ const ProjectCard = ({ project, index, autoPlay }) => {
     if (!isPlaying || project.images.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) =>
-        prev === project.images.length - 1 ? 0 : prev + 1
-      );
+      setCurrentImageIndex((prev) => (prev === project.images.length - 1 ? 0 : prev + 1));
     }, 3000);
 
     return () => clearInterval(interval);
   }, [isPlaying, project.images.length]);
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === project.images.length - 1 ? 0 : prev + 1
-    );
+    setCurrentImageIndex((prev) => (prev === project.images.length - 1 ? 0 : prev + 1));
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? project.images.length - 1 : prev - 1
-    );
+    setCurrentImageIndex((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
   };
 
   const goToImage = (index) => {
@@ -146,12 +134,11 @@ const ProjectCard = ({ project, index, autoPlay }) => {
   };
 
   const getRepoType = () => {
-    if (project.repositories.single) return "single";
-    if (project.repositories.frontend && project.repositories.backend)
-      return "fullstack";
-    if (project.repositories.frontend) return "frontend";
-    if (project.repositories.backend) return "backend";
-    return "single";
+    if (project.repositories.single) return 'single';
+    if (project.repositories.frontend && project.repositories.backend) return 'fullstack';
+    if (project.repositories.frontend) return 'frontend';
+    if (project.repositories.backend) return 'backend';
+    return 'single';
   };
 
   const repoType = getRepoType();
@@ -171,7 +158,7 @@ const ProjectCard = ({ project, index, autoPlay }) => {
           {project.category}
         </div>
         <div className={styles.repoType}>
-          {repoType === "fullstack" && <Zap size={14} />}
+          {repoType === 'fullstack' && <Zap size={14} />}
           {repoType}
         </div>
       </div>
@@ -181,8 +168,11 @@ const ProjectCard = ({ project, index, autoPlay }) => {
           <img
             src={project.images[currentImageIndex]}
             alt={`${project.title} - Screenshot ${currentImageIndex + 1}`}
-            className={styles.projectImg}
+            className={`${styles.projectImg} ${imageLoaded ? styles.loaded : ''}`}
+            onLoad={() => setImageLoaded(true)}
+            loading="lazy"
           />
+          {!imageLoaded && <div className={styles.imageSkeleton}></div>}
           <div className={styles.imageOverlay}></div>
         </div>
 
@@ -195,21 +185,11 @@ const ProjectCard = ({ project, index, autoPlay }) => {
             <div className={styles.imageCounter}>
               {currentImageIndex + 1} / {project.images.length}
             </div>
-
-            <button
-              className={styles.playPauseBtn}
-              onClick={togglePlay}
-              aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
-            >
-              {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-            </button>
           </div>
         )}
 
         <div
-          className={`${styles.projectOverlay} ${
-            isHovered && !isNavHovered ? styles.visible : ""
-          }`}
+          className={`${styles.projectOverlay} ${isHovered && !isNavHovered ? styles.visible : ''}`}
         >
           <div className={styles.projectLinks}>
             <a
@@ -280,15 +260,15 @@ const ProjectCard = ({ project, index, autoPlay }) => {
           <div className={styles.repoInfo}>
             <Github size={16} />
             <span>
-              {repoType === "fullstack" && "Frontend + Backend Repos"}
-              {repoType === "frontend" && "Frontend Repository"}
-              {repoType === "backend" && "Backend Repository"}
-              {repoType === "single" && "Single Repository"}
+              {repoType === 'fullstack' && 'Frontend + Backend Repos'}
+              {repoType === 'frontend' && 'Frontend Repository'}
+              {repoType === 'backend' && 'Backend Repository'}
+              {repoType === 'single' && 'Single Repository'}
             </span>
           </div>
           <div className={styles.imageCount}>
             {project.images.length} screenshot
-            {project.images.length !== 1 ? "s" : ""}
+            {project.images.length !== 1 ? 's' : ''}
           </div>
         </div>
       </div>
