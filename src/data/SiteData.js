@@ -70,6 +70,38 @@ export const projects = [
     category: 'Frontend',
     featured: false,
   },
+  {
+    title: 'NanoCut',
+    description:
+      'NanoCut is a modern backend-focused URL shortener with static HTML pages. It features secure link management, analytics, and customizable short URLs. Built with Node.js, Express, and MongoDB, it ensures high performance, scalability, and reliable session handling with JWT.',
+    technologies: ['Node.js', 'Express', 'MongoDB', 'JWT'],
+    demoLink: 'https://nanocut.onrender.com/',
+    images: [
+      '/assets/projects/nanocut-1.png',
+      '/assets/projects/nanocut-2.png',
+      '/assets/projects/nanocut-3.png',
+      '/assets/projects/nanocut-4.png',
+    ],
+    repositories: {
+      single: 'https://github.com/sohaibalidev/nanocut',
+    },
+    category: 'Fullstack',
+    featured: false,
+  },
+  {
+    title: 'Wrikos',
+    description:
+      'Wrikos is a basic fullstack todo app with simple login and registration using MongoDB. It allows users to manage their todos efficiently with a minimalistic, clean interface. The frontend is built with React, and the backend uses Node.js, Express, and MongoDB to handle authentication and data storage.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    demoLink: 'https://wrikos.netlify.app/',
+    images: ['/assets/projects/wrikos-1.png', '/assets/projects/wrikos-2.png'],
+    repositories: {
+      frontend: 'https://github.com/sohaibalidev/wrikos-client',
+      backend: 'https://github.com/sohaibalidev/wrikos-server',
+    },
+    category: 'Fullstack',
+    featured: false,
+  },
 ];
 
 export const projectCategories = ['All', 'Fullstack', 'Frontend', 'Backend', 'Featured'];
