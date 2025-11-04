@@ -1,8 +1,20 @@
 {
   "name": "portfolio-v2",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
+  "description": "A modern developer portfolio built with React and Vite, showcasing projects, skills, and contact information.",
+  "author": "Sohaib Ali <msohaibaliofficialgmail.com>",
+  "keywords": [
+    "portfolio",
+    "react",
+    "vite",
+    "frontend",
+    "developer",
+    "javascript",
+    "projects",
+    "personal-website"
+  ],
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",

@@ -83,7 +83,7 @@ const Hero = () => {
           <div className={styles.portraitSection}>
             <div className={styles.portraitContainer}>
               <img
-                src="/assets/portrait.jpg"
+                src="/assets/portrait.png"
                 alt="Muhammad Sohaib Ali"
                 className={styles.portrait}
               />
