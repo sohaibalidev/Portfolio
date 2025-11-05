@@ -82,11 +82,27 @@ const Hero = () => {
             </p>
 
             <div className={styles.buttons}>
-              <a href="#projects" className="btn">
+              <a
+                key={'Projects'}
+                href={'#projects'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('#projects');
+                }}
+                className={'btn'}
+              >
                 View My Work
                 <ArrowRight size={18} />
               </a>
-              <a href="#contact" className="btn btn-secondary">
+              <a
+                key={'Contact'}
+                href={'#contact'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('#contact');
+                }}
+                className={'btn btn-secondary'}
+              >
                 Get In Touch
               </a>
             </div>
