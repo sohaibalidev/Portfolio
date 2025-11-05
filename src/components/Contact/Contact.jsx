@@ -23,7 +23,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const accessKey = import.meta.env.VITE_FORM_API_KEY;
+    const accessKey = import.meta.env.VITE_FORM_ACCESS_KEY;
 
     const formPayload = {
       access_key: accessKey,
