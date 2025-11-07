@@ -48,7 +48,7 @@ const Navigation = () => {
               handleNavClick('#home');
             }}
           >
-            Sohaib.dev
+            Sohaib Ali
           </a>
 
           <div className={`${styles.navLinks} ${isMobileOpen ? styles.active : ''}`}>

@@ -130,7 +130,7 @@ const Hero = () => {
             <div className={styles.portraitContainer}>
               <img
                 src="/assets/portrait.png"
-                alt="Muhammad Sohaib Ali"
+                alt="Sohaib Ali"
                 className={styles.portrait}
                 style={{
                   transform: `translate(${position.x}px, ${position.y}px)`,
