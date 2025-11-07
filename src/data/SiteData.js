@@ -41,7 +41,7 @@ export const projects = [
   {
     title: 'NanoCut v2',
     description:
-      'NanoCut v2 is a modern, fullstack URL shortener built with the MERN stack. It features secure authentication, link analytics, and customizable short URLs with IP-based tracking. The project includes a clean, responsive frontend built with React and a powerful backend using Node.js, Express, and MongoDB, ensuring high performance, scalability, and reliable session handling with JWT.',
+      'NanoCut v2 is a modern, fullstack URL shortener built with the MERN stack. It features secure authentication, link analytics, and customizable short URLs. The project includes a clean, responsive frontend built with React and a powerful backend using Node.js, Express, and MongoDB, ensuring high performance, scalability, and reliable session handling with JWT.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Resend'],
     demoLink: 'https://nanocut-v2.netlify.app/',
     images: [
