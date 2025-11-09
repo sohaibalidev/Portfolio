@@ -60,7 +60,7 @@ export const projects = [
   {
     title: 'ReactCast',
     description:
-      'ReactCast is a modern weather forecasting web app built with React. It delivers real-time weather data, forecasts, and city-based insights with a sleek, dark-themed UI. The app uses external weather APIs and is optimized for responsiveness and accessibility. Designed for performance, aesthetics, and smooth user interaction.',
+      'ReactCast is a modern weather web app built with React. It delivers real-time data, forecasts, and city-based insights with a sleek dark UI. The app uses external APIs and is optimized for responsiveness, accessibility, and smooth performance.',
     technologies: ['React', 'API Integration', 'CSS Modules'],
     demoLink: 'https://reactcast.netlify.app/',
     images: ['/assets/projects/reactcast.png'],
@@ -101,6 +101,25 @@ export const projects = [
     },
     category: 'Fullstack',
     featured: false,
+  },
+  {
+    title: 'Poll Verse',
+    description:
+      'PollVerse is a quick and simple fullstack web app for creating and answering polls. It has a clean 3-page flow - landing, create poll, and answer poll - where users can easily make polls with a name, question, and up to 10 answers. Supports single or multiple choices and uses cookies for lightweight, session-based functionality with basic security.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Cookies'],
+    demoLink: 'https://poll-verse.netlify.app/',
+    images: [
+      '/assets/projects/poll-verse-1.png',
+      '/assets/projects/poll-verse-2.png',
+      '/assets/projects/poll-verse-3.png',
+      '/assets/projects/poll-verse-4.png',
+    ],
+    repositories: {
+      frontend: 'https://github.com/sohaibalidev/pollverse-client',
+      backend: 'https://github.com/sohaibalidev/pollverse-server',
+    },
+    category: 'Fullstack',
+    featured: true,
   },
 ];
 
