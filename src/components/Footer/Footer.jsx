@@ -1,7 +1,7 @@
-import { contact } from "@/data/SiteData";
-import { Heart, Coffee } from "lucide-react";
-import styles from "./Footer.module.css";
-import { handleNavClick } from "../Navigation/Navigation";
+import { contact } from '@/data/SiteData';
+import { Heart, Coffee } from 'lucide-react';
+import styles from './Footer.module.css';
+import { handleNavClick } from '../Navigation/Navigation';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -34,12 +34,21 @@ const Footer = () => {
             <a href={contact.github} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
+
+            <a
+              href="https://www.linkedin.com/in/muhammadsohaibali"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 
         <div className={styles.copyright}>
           <p>
-            &copy; {currentYear} Sohaib Ali. Made with
+            &copy; {currentYear}{' '}
+            <a className={styles.anchorTag} target='_blank' href="https://www.linkedin.com/in/muhammadsohaibali/">Sohaib Ali</a>. Made with
             <Heart size={16} /> and <Coffee size={16} />
           </p>
         </div>

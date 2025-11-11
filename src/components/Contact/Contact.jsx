@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, Github, Send, Loader2 } from 'lucide-react';
+import { Mail, Phone, Github, Send, Loader2, Linkedin } from 'lucide-react';
 import { contact } from '@/data/SiteData.js';
 import styles from './Contact.module.css';
 
@@ -98,6 +98,16 @@ const Contact = () => {
               >
                 <Github size={24} />
                 <span>View my GitHub</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/muhammadsohaibali"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactMethod}
+              >
+                <Linkedin size={24} />
+                <span>Connect on LinkedIn</span>
               </a>
             </div>
           </div>
