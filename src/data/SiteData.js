@@ -127,7 +127,7 @@ export const projectCategories = ['All', 'Fullstack', 'Frontend', 'Backend', 'Fe
 
 export const contact = {
   email: 'msohaibaliofficial@gmail.com',
-  phone: '+92 332 4819987',
+  phone: '+923324819987',
   github: 'https://github.com/sohaibalidev',
   resume: '/resume.pdf',
 };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, Github, Send, Loader2, Linkedin } from 'lucide-react';
+import { Mail, Phone, Github, Send, Loader2, Linkedin, MessageCircle } from 'lucide-react';
 import { contact } from '@/data/SiteData.js';
 import styles from './Contact.module.css';
 
@@ -85,8 +85,12 @@ const Contact = () => {
                 <span>{contact.email}</span>
               </a>
 
-              <a href={`tel:${contact.phone}`} className={styles.contactMethod}>
-                <Phone size={24} />
+              <a
+                href={`https://wa.me/${contact.phone}`}
+                target="_blank"
+                className={styles.contactMethod}
+              >
+                <MessageCircle size={24} />
                 <span>{contact.phone}</span>
               </a>
 
