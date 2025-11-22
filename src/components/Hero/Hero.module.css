@@ -525,3 +525,37 @@
     image-rendering: -webkit-optimize-contrast;
   }
 }
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .buttons .btn,
+  .buttons .resumeBtn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .buttons .btn,
+  .buttons .resumeBtn {
+    max-width: 260px;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+  }
+}

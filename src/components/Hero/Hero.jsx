@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Rocket, ArrowRight, Folder, Calendar, Cpu } from 'lucide-react';
+import { Rocket, ArrowRight, Folder, Calendar, Cpu, Download } from 'lucide-react';
 import { handleNavClick } from '../Navigation/Navigation';
 import styles from './Hero.module.css';
 
@@ -45,6 +45,20 @@ const Hero = () => {
 
   const handleMouseLeave = () => {
     setPosition({ x: 0, y: 0 });
+  };
+
+  // Resume download handler
+  const handleResumeDownload = () => {
+    // Replace with your actual resume file path
+    const resumeUrl = '/resume/sohaib-ali-resume.pdf';
+
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Sohaib-Ali-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -105,6 +119,13 @@ const Hero = () => {
               >
                 Get In Touch
               </a>
+              <button
+                onClick={handleResumeDownload}
+                className={`btn btn-secondary ${styles.resumeBtn}`}
+              >
+                Download Resume
+                <Download size={18} />
+              </button>
             </div>
 
             <div className={styles.stats}>
@@ -130,7 +151,7 @@ const Hero = () => {
             <div className={styles.portraitContainer}>
               <img
                 src="/assets/portrait.png"
-                alt="Sohaib Ali"
+                alt="Muhammad Sohaib Ali"
                 className={styles.portrait}
                 style={{
                   transform: `translate(${position.x}px, ${position.y}px)`,
